@@ -1,0 +1,36 @@
+module BloodBank {
+    interface BloodBankServer {
+        typedef sequence<string> DonorInfo;
+        typedef sequence<string> Donor;
+        typedef sequence<string> inventory;
+	typedef sequence<string> history;
+        DonorInfo bloodsearch(in string bloodtype);
+        Donor nrc_check(in string donor_nrc);
+	inventory getInventory();
+	history getInventoryHistory();
+	string getDonationHistory(in string donor_nrc);
+        string bloodrequest(
+            in string blood_id, 
+            in string receiver_name, 
+            in string receiver_phone, 
+            in string receive_date,
+            in string receiver_age, 
+            in string receiver_gender, 
+            in string receiver_address, 
+            in string receiver_email
+            
+        );
+
+        string blooddonate(
+            in string bloodtype, 
+            in string donor_name, 
+            in string donor_phone, 
+            in string donation_date,
+            in string donor_age, 
+            in string donor_gender, 
+            in string donor_address, 
+            in string donor_email,
+            in string donor_nrc // Added NRC attribute
+        );
+    };
+};

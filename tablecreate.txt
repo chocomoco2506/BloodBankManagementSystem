@@ -1,0 +1,52 @@
+create table Donor(
+donorid int not null AUTO_INCREMENT,
+donorname varchar(255),
+phone varchar(100),
+age varchar(50),
+gender varchar(50),
+address varchar(255),
+email varchar(255),
+nrc varchar(255),
+bloodtype varchar(50),
+primary key (donorid));
+
+
+create table Receiver(
+receiverid int not null AUTO_INCREMENT,
+receivername varchar(255),
+phone varchar(100),
+age varchar(50),
+gender varchar(50),
+address varchar(255),
+email varchar(255),
+primary key (receiverid));
+
+create table blood(
+bloodid int not null AUTO_INCREMENT,
+bloodtype varchar(50),
+donorid int,
+donation_date varchar(255),
+receiverid int,
+receive_date varchar(255),
+status varchar(100),
+primary key (bloodid));
+
+
+create table Inventory(
+bloodtype varchar(50),
+total int,
+primary key (bloodtype));
+
+Insert into Inventory(bloodtype,total) values ('A+',0);
+Insert into Inventory(bloodtype,total) values ('A-',0); 
+Insert into Inventory(bloodtype,total) values ('B+',0); 
+Insert into Inventory(bloodtype,total) values ('B-',0); 
+Insert into Inventory(bloodtype,total) values ('O+',0); 
+Insert into Inventory(bloodtype,total) values ('O-',0); 
+Insert into Inventory(bloodtype,total) values ('AB+',0); 
+Insert into Inventory(bloodtype,total) values ('AB-',0); 
+
+
+ 
+
+
